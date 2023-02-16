@@ -6,19 +6,22 @@ Rails.application.routes.draw do
   root 'welcome#welcome'
 
   get'/welcome', to: 'welcome#welcome'
-
-  get'/welcome/:user_entry', to: 'welcome#show_user'
   
   get '/contact', to: 'contact#show'
 
   get '/team', to: 'team#show'  
 
-  get'/gossip/:id', to: 'gossip_page#gossip'
+  get '/test', to: 'test#test'
 
-  resources :gossips
+  resources :gossips do
+    resources :comments
+  end
 
-  resources :users, only: [:show]
+  resources :users, only: [:new, :create, :show]
 
   resources :cities, only: [:show]
+
+  resources :sessions, only: [:new, :create, :destroy]
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
 
 end

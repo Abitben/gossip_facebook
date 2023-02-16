@@ -4,6 +4,15 @@
     <br>
     <h1>BIENVENUE ! </h1>
     <h2> Psst .. c'est la page des malversations !</h2>
+    <h2>Bienvenue <%= User.find_by(id: session[:user_id]).first_name %> !</h2>
+    <br>
+    </div>
+
+    <div class="container">
+    <br>
+    <h2> Tu veux en écrire un nouveau ?</h2>
+    <a href="http://localhost:3000/gossips/new" class="btn btn-primary">Nouveau potin</a>
+    <br>
     <br>
     </div>
 
@@ -29,3 +38,4 @@
   </body>
   <br>
 </html>
+

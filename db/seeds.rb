@@ -6,20 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-JoinTableGossipTag.destroy_all
-PrivateMessage.destroy_all
-Gossip.destroy_all
-Tag.destroy_all
-User.destroy_all
-City.destroy_all
-
-
 10.times do 
   city = City.create!(
     name: Faker::Address.city,
     zip_code: Faker::Address.zip_code
   )
 end
+
 
 10.times do
   tag = Tag.create(
@@ -34,7 +27,8 @@ end
     description: Faker::Lorem.paragraph(sentence_count: 2),
     email: Faker::Internet.free_email,
     age: rand(18..80),
-    city_id: rand(1..10)
+    city_id: rand(1..10),
+    password: Faker::Internet.password
   )
 end
 
@@ -58,5 +52,13 @@ end
     content: Faker::Lorem.paragraph(sentence_count: 2),
     sender_id: rand(1..10),
     recipient_id: rand(1..10)
+  )
+end
+
+10.times do
+  comment = Comment.create!(
+    content: Faker::Lorem.paragraph(sentence_count: 2),
+    user_id: rand(1..10),
+    gossip_id: rand(1..10)
   )
 end

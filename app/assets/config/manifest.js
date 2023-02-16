@@ -1,6 +1,5 @@
 //= link_tree ../images
 //= link_tree ../builds
-//= link custom.css
-//= link_tree ../images
+//= link application.bootstrap.scss
 //= link_directory ../stylesheets .css
-//= link_directory ../javascripts .js
+//= link application.css

@@ -10,55 +10,30 @@
     <br>
     </div>
 
-<div class="container">
-    <%= form_tag url_for(action: 'create'), method: "post"  do %>
-
-      <%= label_tag 'title' %>
-      <br>
-      <%= text_field_tag 'title', "placeholder" %>
-      <br /> <br />
-
-      <%= label_tag 'content' %>
-      <br>
-      <%= text_area_tag 'content', "placeholder" %>
-      <br /> <br />
-
-      <%= submit_tag "Create Gossip" %>
-
-    <% end %>
-
-    <br /> <br />
-    <% if @gossip.errors.any? %>
-      <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
-      <ul>
-        <% @gossip.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <!-- ... -->
- </div>
-
     <div class="container">
   <%= form_tag url_for(action: 'create'), method: "post", class: "form-horizontal" do %>
 
     <div class="form-group">
-      <%= label_tag 'title', class: "col-sm-2 control-label" %>
+      <%= label_tag 'Titre de ta malversation' %>
       <div class="col-sm-10">
-        <%= text_field_tag 'title', "placeholder", class: "form-control" %>
+        <%= text_field_tag 'title', "", class: "form-control" %>
       </div>
     </div>
 
+    <br>
+
     <div class="form-group">
-      <%= label_tag 'content', class: "col-sm-2 control-label" %>
+      <%= label_tag "Qu'est-ce que tu veux nous dire ?" %>
       <div class="col-sm-10">
-        <%= text_area_tag 'content', "placeholder", class: "form-control" %>
+        <%= text_area_tag 'content', "", class: "form-control" %>
       </div>
     </div>
+
+    <br>
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag "Create Gossip", class: "btn btn-primary" %>
+        <%= submit_tag "Créer une malversation", class: "btn btn-primary" %>
       </div>
     </div>
 
