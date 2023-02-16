@@ -55,7 +55,7 @@ end
   )
 end
 
-10.times do
+200.times do
   comment = Comment.create!(
     content: Faker::Lorem.paragraph(sentence_count: 2),
     user_id: rand(1..10),

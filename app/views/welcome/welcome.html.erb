@@ -10,12 +10,21 @@
       <br>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <button type="button" href="http://localhost:3000/sessions/new" class="btn btn-outline-primary">Se connecter</button>
+      <% if current_user == nil %>
+        <div class="row">
+          <div class="col">
+            <button type="button" href="/sessions/new" class="btn btn-outline-primary">Se connecter</button>
+          </div>
+          <div class="col">
+            <button type="button" href="/users/new" class="btn btn-primary">Créer un compte</button>
+          </div>
         </div>
-        <div class="col">
-          <button type="button" href="http://localhost:3000/users/new" class="btn btn-primary">Créer un compte</button>
+      <% end %>
+      <% if current_user != nil %>
+        <div class="row">
+          <div class="col">
+            <button type="button" href="/gossips/" class="btn btn-outline-primary">Accède aux malversations</button>
+          </div>
         </div>
-      </div>
+      <% end %>
     </html>
